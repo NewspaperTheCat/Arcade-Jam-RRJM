@@ -42,10 +42,17 @@ public class Zeus : MonoBehaviour
 
     // Casts a circle overlap cast and effects each appropriately
     public void Smite() {
-        Collider[] hits = Physics.OverlapSphere(Vector3.up * .5f + transform.position, smiteRadius, ~LayerMask.GetMask("Ground"));
+        Collider[] hits = Physics.OverlapSphere(Vector3.up * .5f + transform.position, smiteRadius, ~LayerMask.GetMask("Ground"), QueryTriggerInteraction.Collide);
         foreach(Collider col in hits) {
             if (col.transform.GetComponent<Robot>() != null) {
                 col.transform.GetComponent<Robot>().Recharge();
+            }
+            if (col.transform.GetComponent<Grub>() != null)
+            {
+                col.transform.GetComponent<Grub>().TakeDamage(100);
+            }
+            if (col.transform.GetComponent<Station>() != null) {
+                col.transform.GetComponent<Station>().OnHit();
             }
         }
     }
