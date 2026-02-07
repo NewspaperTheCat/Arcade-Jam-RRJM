@@ -11,6 +11,10 @@ public enum StationType
 
 public abstract class Station: MonoBehaviour{
 
+    [Header("Debug")]
+    [SerializeField] protected bool enableGizmos;
+    [Space(10)]
+
     [Header("Type")]
     [SerializeField] protected int maxHealth;
     [SerializeField] protected StationType stationType;
@@ -30,6 +34,16 @@ public abstract class Station: MonoBehaviour{
     public StationType getStationType()
     {
         return stationType;
+    }
+
+    public virtual void OnHit()
+    {
+        return;
+    }
+
+    public virtual void Recharge()
+    {
+        return;
     }
 
     public void TakeDamage(int amount)

@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6765307412794271930}
   - component: {fileID: 256965768234335089}
+  - component: {fileID: 8726668269796450585}
   m_Layer: 0
   m_Name: Baby Station
   m_TagString: Untagged
@@ -128,5 +129,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32fdda0b593ede488e05863411d91c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableGizmos: 1
   maxHealth: 50
   stationType: 2
+  explosionRadius: 2
+--- !u!135 &8726668269796450585
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305781476320957142}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
