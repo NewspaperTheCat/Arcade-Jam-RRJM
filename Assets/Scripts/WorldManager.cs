@@ -9,6 +9,9 @@ public class WorldManager : MonoBehaviour
 
     [HideInInspector] public Transform homeStation;
 
+    // Generic item prefab that can be set with different cargo
+    [SerializeField] GameObject itemPrefab;
+
     [SerializeField] GameObject babyStationPrefab;
     Dictionary<StationType, GameObject> stationPrefabs = new Dictionary<StationType, GameObject>();
 
@@ -78,5 +81,10 @@ public class WorldManager : MonoBehaviour
     public Station PlaceStation(StationType type, Vector3 position) {
         Station station = Instantiate(stationPrefabs[type], position, Quaternion.identity, transform).GetComponent<Station>();
         return station;
+    }
+
+    public void SpawnItem(Vector3 position) {
+        Item item = Instantiate(itemPrefab, position, Quaternion.identity, transform).GetComponent<Item>();
+        item.cargo = StationType.BabyStation;
     }
 }

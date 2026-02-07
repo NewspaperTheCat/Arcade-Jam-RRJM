@@ -39,7 +39,6 @@ public class Robot : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        Debug.Log(robotState);
         switch (robotState)
         {
             case RobotState.Normal:
