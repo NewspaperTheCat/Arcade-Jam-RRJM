@@ -25,7 +25,7 @@ public class WorldManager : MonoBehaviour
 
         foreach (Station station in GetComponentsInChildren<Station>())
         {
-            if (station.getStationType() == Station.StationType.HomeStation)
+            if (station.getStationType() == StationType.HomeStation)
             {
                 homeStationCount++;
                 homeStation = station.gameObject.transform;

@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StationType
+{
+    None,
+    HomeStation
+}
+
 public abstract class Station: MonoBehaviour{
 
-    [SerializeField] private int maxHealth;
+    [Header("Type")]
+    [SerializeField] protected int maxHealth;
+    [SerializeField] protected StationType stationType;
 
-    private int currentHealth;
-
-    [HideInInspector] public enum StationType
-    {
-        None,
-        HomeStation
-    }
-
-    [SerializeField] private StationType stationType;
+    protected int currentHealth;
 
     protected virtual void Start()
     {
