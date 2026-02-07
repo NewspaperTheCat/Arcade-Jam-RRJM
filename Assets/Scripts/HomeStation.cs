@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class HomeStation : Station
 {
-
+    public override void Die()
+    {
+        base.Die();
+        GameManager.Instance.SetGameOver();
+    }
 }
