@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   enemyType: 1
-  cost: 0
+  cost: 2
   pointWorth: 0
   moveSpeed: 2
   enemyArriveDistance: 1
