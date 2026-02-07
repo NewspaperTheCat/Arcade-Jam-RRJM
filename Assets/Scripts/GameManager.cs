@@ -29,9 +29,7 @@ public class GameManager : MonoBehaviour
         }
 
         _instance = this;
-
-        elapsedTime = 0;
-        gameOver = false;
+        SetUpGame();
 
     }
 
@@ -44,6 +42,12 @@ public class GameManager : MonoBehaviour
         }
 
         elapsedTime += Time.deltaTime;
+    }
+
+    private void RestartGame()
+    {
+        SceneManager.LoadScene("Game");
+        SetUpGame();
     }
 
     public void SetGameOver(bool go = true)
@@ -67,5 +71,11 @@ public class GameManager : MonoBehaviour
         int amount = Mathf.CeilToInt(points * pointMultiplier);
         points += amount;
         Debug.Log(points);
+    }
+
+    private void SetUpGame()
+    {
+        elapsedTime = 0;
+        gameOver = false;
     }
 }
