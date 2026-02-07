@@ -47,6 +47,10 @@ public class Zeus : MonoBehaviour
             if (col.transform.GetComponent<Robot>() != null) {
                 col.transform.GetComponent<Robot>().Recharge();
             }
+            if (col.transform.GetComponent<Grub>() != null)
+            {
+                col.transform.GetComponent<Grub>().TakeDamage(100);
+            }
         }
     }
 }

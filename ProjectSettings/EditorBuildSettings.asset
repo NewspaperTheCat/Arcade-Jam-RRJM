@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Richie.unity
+    path: Assets/Scenes/OldStuff/Old.unity
     guid: c9a42e563713df64caa214cb09b116fa
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
