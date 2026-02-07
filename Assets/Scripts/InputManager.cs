@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using System.ComponentModel;
+using System.Runtime.Serialization.Formatters;
 
 public class InputManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class InputManager : MonoBehaviour
     Vector2 zeusMovement;
 
     public UnityEvent smite = new UnityEvent();
+    public UnityEvent interact = new UnityEvent();
 
     // Singleton
     void Awake() {
@@ -44,5 +46,9 @@ public class InputManager : MonoBehaviour
 
     public void OnSmite(InputAction.CallbackContext context) {
         if (context.started) smite.Invoke();
+    }
+
+    public void OnInteract(InputAction.CallbackContext context) {
+        if (context.started) interact.Invoke();
     }
 }
