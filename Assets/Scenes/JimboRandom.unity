@@ -465,6 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  noChargeAmount: 0.1
   ChargeBar: {fileID: 351950729}
   passiveDecay: 0.1
 --- !u!136 &645305043

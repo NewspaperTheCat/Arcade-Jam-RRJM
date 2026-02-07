@@ -21,7 +21,6 @@ public class Robot : MonoBehaviour
     {
         Normal,
         NoPower
-    
     }
 
     private RobotState robotState;
