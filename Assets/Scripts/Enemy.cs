@@ -95,6 +95,11 @@ public abstract class Enemy : MonoBehaviour {
     }
     public virtual void Die()
     {
+        // roll chance to drop item
+        if (Random.Range(0, 10) >= 6) {
+            WorldManager.Instance.SpawnItem(transform.position);
+        }
+
         GameManager.Instance.AddPoints(pointWorth);
         Destroy(gameObject);
     }
