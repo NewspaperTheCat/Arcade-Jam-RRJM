@@ -11,10 +11,20 @@ public class Robot : MonoBehaviour
 
     [Header("Charge")]
     float charge = 1; // max charge = 1, empty = 0
+    [SerializeField] float noChargeAmount; // max charge = 1, empty = 0
     [SerializeField] Image ChargeBar;
     [SerializeField] float passiveDecay;
 
     Item carrying = null;
+
+    public enum RobotState
+    {
+        Normal,
+        NoPower
+    
+    }
+
+    private RobotState robotState;
 
     void Start() {
         InputManager.inst.interact.AddListener(Interact);
@@ -22,26 +32,50 @@ public class Robot : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+
+        switch (robotState)
+        {
+            case RobotState.Normal:
+                NormalUpdate();
+                break;
+            case RobotState.NoPower:
+                if (charge > noChargeAmount)
+                {
+                    robotState = RobotState.Normal;
+                }
+                break;
+        }
+
+        // Passive decay
+        charge -= passiveDecay * Time.deltaTime;
+        UpdateChargeMeter();
+    }
+
+    private void NormalUpdate()
+    {
         velocity = InputManager.inst.GetRobotMovement() * speed;
 
         // Apply velocity
         transform.position += new Vector3(velocity.x, 0, velocity.y) * Time.deltaTime;
 
         // Clamp position
-        if (transform.position.magnitude > 10) {
+        if (transform.position.magnitude > 10)
+        {
             transform.position = transform.position.normalized * 10;
         }
 
         // set rotation
-        if (velocity.magnitude > 0) {
+        if (velocity.magnitude > 0)
+        {
             float target = Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg;
             // transform.eulerAngles += Vector3.up * (target - transform.eulerAngles.y) * Time.deltaTime / .5f;
             transform.eulerAngles = Vector3.up * target;
         }
 
-        // Passive decay
-        charge -= passiveDecay * Time.deltaTime;
-        UpdateChargeMeter();
+        if(charge <= noChargeAmount)
+        {
+            robotState = RobotState.NoPower;
+        }
     }
 
     // leave amount -1 for full
