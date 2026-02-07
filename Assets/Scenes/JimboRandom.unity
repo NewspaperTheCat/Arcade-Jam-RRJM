@@ -551,7 +551,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -100, y: 0}
-  m_SizeDelta: {x: 50, y: 250}
+  m_SizeDelta: {x: 75, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351950729
 MonoBehaviour:
@@ -824,7 +824,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 25
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -881,7 +881,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
