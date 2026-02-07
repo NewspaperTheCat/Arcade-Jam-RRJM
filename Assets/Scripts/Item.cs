@@ -72,8 +72,8 @@ public class Item : MonoBehaviour
 
         if (other.transform.GetComponent<Robot>() != null) {
             Robot rb = other.transform.GetComponent<Robot>();
-            rb.PickUpItem(this);
-            state = ItemState.GRABBED;
+            if (rb.PickUpItem(this))
+                state = ItemState.GRABBED;
         }
     }
 }

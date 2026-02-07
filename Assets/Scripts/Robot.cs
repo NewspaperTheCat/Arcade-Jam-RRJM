@@ -14,6 +14,7 @@ public class Robot : MonoBehaviour
     float charge = 1; // max charge = 1, empty = 0
     [SerializeField] float noChargeAmount; // max charge = 1, empty = 0
     [SerializeField] Image ChargeBar;
+    [SerializeField] Material robotMaterial;
     [SerializeField] float passiveDecay;
 
     // Item related values
@@ -39,6 +40,8 @@ public class Robot : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+
         switch (robotState)
         {
             case RobotState.Normal:
@@ -50,7 +53,6 @@ public class Robot : MonoBehaviour
                 }
                 break;
             case RobotState.Building:
-                Debug.Log("progressing building");
                 if (Time.time - buildStartTime >= buildTime) {
                     BuildCarrying();
                 } 
@@ -100,24 +102,28 @@ public class Robot : MonoBehaviour
 
     private void UpdateChargeMeter() {
         ChargeBar.fillAmount = charge;
+        robotMaterial.SetVector("_EmissionColor", new Vector4(charge * 2, charge * 2, charge, 1.0f));
     }
 
-    public void PickUpItem(Item item) {
+    public bool PickUpItem(Item item) {
+        if (carrying != null) return false;
+
         carrying = item;
         item.transform.SetParent(transform);
         item.transform.localPosition = Vector3.forward * 1.125f;
         item.SetAnchor();
+        return true;
     }
 
     public void DropItem() {
         if (carrying != null) {
-            Debug.Log("Specifically: " + carrying.cargo);
             carrying.Drop();
+            carrying = null;
         }
     }
 
     public void BuildStart() {
-        if (carrying != null) {
+        if (carrying != null && robotState == RobotState.Normal) {
             robotState = RobotState.Building;
             buildStartTime = Time.time;
             Debug.Log("Build started");
@@ -125,8 +131,10 @@ public class Robot : MonoBehaviour
     }
 
     public void BuildEnd() {
-        robotState = RobotState.Normal;
-        Debug.Log("Build ended");
+        if (robotState == RobotState.Building) {
+            robotState = RobotState.Normal;
+            Debug.Log("Build ended");
+        }
     }
 
     public void BuildCarrying() {

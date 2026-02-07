@@ -64,7 +64,7 @@ public class Zeus : MonoBehaviour
         float duration = .625f;
         while (duration > 0) {
             // Get Duration
-            float delay = Random.Range(0.1f, 0.475f);
+            float delay = Random.Range(0.1f, 0.3f);
             if (duration < delay) delay = duration;
             duration -= delay;
 
