@@ -52,7 +52,7 @@ public class InputManager : MonoBehaviour
     }
 
     public void OnSmite(InputAction.CallbackContext context) {
-        if (context.started) smite.Invoke();
+        if (context.performed) smite.Invoke();
     }
 
     public void OnInteract(InputAction.CallbackContext context) {

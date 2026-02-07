@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
         }
 
         _instance = this;
+        DontDestroyOnLoad(gameObject);
         SetUpGame();
-
     }
 
     private void Update()
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         elapsedTime += Time.deltaTime;
     }
 
-    private void RestartGame()
+    public void RestartGame()
     {
         SceneManager.LoadScene("Game");
         SetUpGame();

@@ -27,7 +27,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _FogFar: 0.9
+    - _FogFar: 1.25
     - _FogNear: 0.1
     m_Colors: []
   m_BuildTextureStacks: []
