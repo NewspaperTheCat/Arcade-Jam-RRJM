@@ -59,6 +59,11 @@ public abstract class Enemy : MonoBehaviour {
         GetNewTarget();
     }
 
+    public int getCost()
+    {
+        return cost;
+    }
+
     protected virtual void GetNewTarget()
     {
         justArrived = false;
