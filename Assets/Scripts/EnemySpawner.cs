@@ -10,7 +10,8 @@ public class EnemySpawner : MonoBehaviour
     [HideInInspector] public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
     [Header("Spawn Area")]
-    public float spawnRadius;
+    [SerializeField] private float spawnRadius;
+    [SerializeField] private float offset;
 
     [Header("Wave Cooldown")]
     [SerializeField] private float initialCoolDown;
@@ -27,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
     private int currentEnemyWaveCost;
 
     [Header("Debug")]
+    [SerializeField] private bool debug;
     [SerializeField] private int staringWave;
     public int currWave;
 
@@ -38,8 +40,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!debug)
+            return;
+
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, spawnRadius);
+        Gizmos.DrawSphere(centerOfSpawn.position, spawnRadius);
     }
 
     void Start()
@@ -57,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
         int waveCost = currentEnemyWaveCost;
         currentCoolDown = initialCoolDown;
         GenerateNPCS(waveCost);
-        Debug.Log("Current wave: " + currWave + "; WaveValue:  " + currentEnemyWaveCost + "; Next Wave in: " + currentWaveDuration);
+        //Debug.Log("Current wave: " + currWave + "; WaveValue:  " + currentEnemyWaveCost + "; Next Wave in: " + currentWaveDuration);
         spawnInterval = currentWaveDuration / enemiesToSpawn.Count;
     }
 
@@ -100,7 +105,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if (enemiesToSpawn.Count > 0)
             {
-                Vector2 spawnPosition = GetRandomSpawnPosition();
+                Vector3 spawnPosition = GetRandomSpawnPosition();
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(enemiesToSpawn[0], spawnPosition, spawnRotation);
                 enemiesToSpawn.RemoveAt(0);
@@ -127,7 +132,6 @@ public class EnemySpawner : MonoBehaviour
         currentEnemyWaveCost = initialEnemyWaveCost + (increaseEnemyWaveCost * currWave);
         currWave++;
 
-
         waveReadySpawn = false;
         coolDownStarted = false;
         GenerateWave();
@@ -135,12 +139,12 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 GetRandomSpawnPosition()
     {
-        Vector2 randomCircle = Random.insideUnitCircle.normalized;
-        float spawnDistance = spawnRadius + Random.Range(-1f, 1f);
+        float angle = Random.Range(0.0f, Mathf.PI * 2);
+        float spawnDistance = spawnRadius + Random.Range(-offset, offset);
 
-        Vector3 direction = new Vector3(randomCircle.x, 0f, randomCircle.y);
+        Vector3 direction = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle));
 
-        Vector3 spawnPosition = centerOfSpawn.transform.position + direction * spawnDistance;
+        Vector3 spawnPosition = centerOfSpawn.position + direction * spawnDistance;
 
         return spawnPosition;
     }

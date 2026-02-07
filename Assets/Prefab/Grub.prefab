@@ -133,7 +133,7 @@ MonoBehaviour:
   enemyType: 1
   cost: 2
   pointWorth: 0
-  moveSpeed: 2
+  moveSpeed: 1
   enemyArriveDistance: 1
   attackDamage: 49
   arrivalAttackCooldown: 0
