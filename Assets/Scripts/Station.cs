@@ -5,7 +5,8 @@ using UnityEngine;
 public enum StationType
 {
     None,
-    HomeStation
+    HomeStation,
+    BabyStation
 }
 
 public abstract class Station: MonoBehaviour{

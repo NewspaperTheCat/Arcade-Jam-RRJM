@@ -11,10 +11,10 @@ public class Grub : Enemy
         switch (enemyState)
         {
             case EnemyState.Moving:
-                Move(WorldManager.Instance.homeStation);
+                Move(currentTarget);
                 break;
             case EnemyState.InRange:
-                InRange(WorldManager.Instance.homeStation);
+                InRange(currentTarget);
                 break;
             case EnemyState.Attack:
                 break;
@@ -24,7 +24,7 @@ public class Grub : Enemy
     {
         if(target == null)
         {
-            Debug.LogError("Need a Target!");
+            GetNewTarget();
             return;
         }
 
@@ -40,7 +40,7 @@ public class Grub : Enemy
     {
         if (target == null)
         {
-            Debug.LogError("Need a Target!");
+            GetNewTarget();
             return;
         }
 
@@ -55,7 +55,7 @@ public class Grub : Enemy
     }
     public override void Attack()
     {
-        DealDamage(WorldManager.Instance.homeStation.GetComponent<Station>());
+        DealDamage(currentTarget.GetComponent<Station>());
         justArrived = false;
         enemyState = EnemyState.InRange;
     }

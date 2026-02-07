@@ -9,6 +9,7 @@ public enum EnemyType
 }
 public enum EnemyState
 {
+    None,
     Moving,
     InRange,
     Attack
@@ -39,22 +40,32 @@ public abstract class Enemy : MonoBehaviour {
     //Currrent Values
     protected int currentHealth;
     protected float currentAttackCooldown;
+    protected Transform currentTarget;
 
     //States
     protected bool justArrived;
-    protected EnemyState enemyState = EnemyState.Moving;
+    protected EnemyState enemyState;
 
     protected virtual void Start()
     {
         currentHealth = maxHealth;
-        justArrived = false;
-        currentAttackCooldown = arrivalAttackCooldown;
 
         if (enemyType == EnemyType.None)
         {
             Debug.LogError("You didn't set the Type Dummy!");
         }
+
+        GetNewTarget();
     }
+
+    protected virtual void GetNewTarget()
+    {
+        justArrived = false;
+        currentAttackCooldown = arrivalAttackCooldown;
+        currentTarget = WorldManager.Instance.getClosestStation(gameObject.transform);
+        enemyState = EnemyState.Moving;
+    }
+
     private void OnDrawGizmos()
     {
         if (!enableGizmos) return;
