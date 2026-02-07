@@ -9,6 +9,12 @@ public enum StationType
     BabyStation
 }
 
+public enum StationState
+{
+    Normal,
+    Cooldown
+}
+
 public abstract class Station: MonoBehaviour{
 
     [Header("Debug")]
@@ -20,6 +26,8 @@ public abstract class Station: MonoBehaviour{
     [SerializeField] protected StationType stationType;
 
     protected int currentHealth;
+
+    protected StationState stationState = StationState.Normal;
 
     protected virtual void Start()
     {

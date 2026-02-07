@@ -616,6 +616,7 @@ MonoBehaviour:
   noChargeAmount: 0.05
   ChargeBar: {fileID: 351950729}
   passiveDecay: 0.1
+  buildTime: 0
 --- !u!136 &645305043
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1027,6 +1028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851c627cf5c01dc49b0d6a22e135ff20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cargo: 0
 --- !u!4 &1015109729
 Transform:
   m_ObjectHideFlags: 0
@@ -1271,6 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeStation: {fileID: 0}
+  babyStationPrefab: {fileID: 0}
 --- !u!1 &1749750685
 GameObject:
   m_ObjectHideFlags: 0
