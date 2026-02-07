@@ -51,6 +51,11 @@ public class GameManager : MonoBehaviour
         gameOver = go;
     }
 
+    public bool getGameOver()
+    {
+        return gameOver;
+    }
+
     public void AddPoints(int amount)
     {
         points += amount;

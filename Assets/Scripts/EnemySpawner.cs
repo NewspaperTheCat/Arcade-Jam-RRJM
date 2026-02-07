@@ -7,7 +7,6 @@ public class EnemySpawner : MonoBehaviour
 
     //public List<Enemy> enemies = new List<Enemy>();
     //[HideInInspector] public List<GameObject> enemiesToSpawn = new List<GameObject>();
-    //private Camera mainCamera;
     //public float spawnRadius;
     //private float spawnInterval;
     //private bool waveReadySpawn = false;
@@ -24,26 +23,26 @@ public class EnemySpawner : MonoBehaviour
     //private int currentEnemyWaveCost;
     //[SerializeField] private int staringWave;
 
-    //[SerializeField] private AudioClip waveStartSFX;
+
+    //private Transform centerOfSpawn;
 
     //private void OnDrawGizmos()
     //{
     //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, spawnRadius);
+    //    Gizmos.DrawSphere(transform.position, spawnRadius);
     //}
 
     //void Start()
     //{
     //    currentWaveDuration = initialWaveDuration;
     //    currWave = staringWave;
-    //    mainCamera = Camera.main;
+    //    centerOfSpawn = gameObject.transform;
     //    currentEnemyWaveCost = initialEnemyWaveCost;
     //    GenerateWave();
     //}
 
     //private void GenerateWave()
     //{
-    //    //AudioManager.instance.PlaySFX(waveStartSFX);
 
     //    int waveCost = currentEnemyWaveCost;
     //    currentCoolDown = initialCoolDown;
@@ -76,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
 
     //private void Update()
     //{
-    //    //if (GameManager.instance.isGameOver) return;
+    //    if (GameManager.Instance.getGameOver()) return;
 
     //    if (waveReadySpawn)
     //    {
@@ -124,12 +123,15 @@ public class EnemySpawner : MonoBehaviour
     //    GenerateWave();
     //}
 
-
-    //private Vector2 GetRandomSpawnPosition()
+    //private Vector3 GetRandomSpawnPosition()
     //{
-    //    Vector2 randomDirection = Random.insideUnitCircle.normalized;
-    //    float spawnDistance = spawnRadius + Random.Range(-1f, 1f); // Adjust the range as needed
-    //    Vector2 spawnPosition = (Vector2) mainCamera.transform.position + randomDirection * spawnDistance;
+    //    Vector2 randomCircle = Random.insideUnitCircle.normalized;
+    //    float spawnDistance = spawnRadius + Random.Range(-1f, 1f);
+
+    //    Vector3 direction = new Vector3(randomCircle.x, 0f, randomCircle.y);
+
+    //    Vector3 spawnPosition = centerOfSpawn.transform.position + direction * spawnDistance;
+
     //    return spawnPosition;
     //}
 }
