@@ -21,8 +21,9 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField] protected int maxHealth;
     [SerializeField] EnemyType enemyType = EnemyType.None;
 
-    [Header("Spawn Value")]
+    [Header("Value")]
     [SerializeField] protected int cost;
+    [SerializeField] protected int pointWorth;
 
     [Header("Distance")]
     [SerializeField] protected float moveSpeed;
@@ -94,6 +95,7 @@ public abstract class Enemy : MonoBehaviour {
     }
     public virtual void Die()
     {
+        GameManager.Instance.AddPoints(pointWorth);
         Destroy(gameObject);
     }
 }

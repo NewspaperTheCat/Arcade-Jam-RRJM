@@ -42,6 +42,7 @@ public abstract class Station: MonoBehaviour{
     }
     public virtual void Die()
     {
+        GameManager.Instance.AddPoints(100);
         Destroy(gameObject);
     }
 }
