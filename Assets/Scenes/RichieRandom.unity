@@ -1206,11 +1206,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _WorldManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1682530218340795010, guid: a717c6ceb2a108d4bab37e1c303d9b05,
-        type: 3}
-      propertyPath: spawnRadius
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 7382208100022750107, guid: a717c6ceb2a108d4bab37e1c303d9b05,
         type: 3}
       propertyPath: m_LocalPosition.x
