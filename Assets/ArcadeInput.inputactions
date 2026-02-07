@@ -167,6 +167,17 @@
                 },
                 {
                     "name": "",
+                    "id": "09f5d729-736b-4160-bb29-9177d02f344b",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RobotMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e6fe372e-928a-47a5-a536-03b437ee5bb8",
                     "path": "<Mouse>/delta",
                     "interactions": "",
@@ -211,6 +222,17 @@
                 },
                 {
                     "name": "",
+                    "id": "74cf1110-dc32-4dbf-9ff1-cf1f34d67cd4",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Smite",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e2e87e59-91ae-4b54-b945-86760d5e9d3d",
                     "path": "<Keyboard>/l",
                     "interactions": "",
@@ -224,6 +246,17 @@
                     "name": "",
                     "id": "7b8dd08f-fe37-41a5-a6a6-124c327c4f42",
                     "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e62ddffb-9c7b-4563-8f92-34be6b1aa808",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
