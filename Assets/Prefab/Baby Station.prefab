@@ -133,6 +133,7 @@ MonoBehaviour:
   maxHealth: 50
   stationType: 2
   explosionRadius: 2
+  explosionRechargeTime: 5
 --- !u!135 &8726668269796450585
 SphereCollider:
   m_ObjectHideFlags: 0
