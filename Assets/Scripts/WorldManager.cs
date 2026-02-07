@@ -43,4 +43,29 @@ public class WorldManager : MonoBehaviour
         }
 
     }
+
+    public Transform getClosestStation(Transform temp)
+    {
+        Transform closest = null;
+        float closestSqrDist = float.MaxValue;
+
+        Vector3 origin = temp.position;
+
+        foreach(Station station in GetComponentsInChildren<Station>())
+        {
+            float sqrDist = (station.transform.position - origin).sqrMagnitude;
+
+            if (sqrDist < closestSqrDist) { 
+                closestSqrDist = sqrDist;
+                closest = station.transform;
+            }
+        }
+
+        if(closestSqrDist == float.MaxValue)
+        {
+            Debug.LogError("No Stations Left!");
+        }
+
+        return closest;
+    }
 }
