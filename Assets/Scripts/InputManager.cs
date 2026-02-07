@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using System.ComponentModel;
 using System.Runtime.Serialization.Formatters;
+using Unity.VisualScripting;
 
 public class InputManager : MonoBehaviour
 {
@@ -14,7 +15,13 @@ public class InputManager : MonoBehaviour
     Vector2 zeusMovement;
 
     public UnityEvent smite = new UnityEvent();
-    public UnityEvent interact = new UnityEvent();
+
+    // Interact button events
+    public UnityEvent drop = new UnityEvent();
+    public UnityEvent buildStart = new UnityEvent();
+    public UnityEvent buildEnd = new UnityEvent();
+    float double_tap_start_time = -10;
+    const float DOUBLE_TAP_MAX = .5f;
 
     // Singleton
     void Awake() {
@@ -49,6 +56,21 @@ public class InputManager : MonoBehaviour
     }
 
     public void OnInteract(InputAction.CallbackContext context) {
-        if (context.started) interact.Invoke();
+        if (context.started) {
+            buildStart.Invoke();
+        }
+
+        if (context.performed) {
+            if (Time.time - double_tap_start_time <= DOUBLE_TAP_MAX) {
+                drop.Invoke();
+                double_tap_start_time = -10;
+            } else {
+                double_tap_start_time = Time.time;
+            }
+        }
+
+        if (context.canceled) {
+            buildEnd.Invoke();
+        }
     }
 }

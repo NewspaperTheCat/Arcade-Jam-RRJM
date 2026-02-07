@@ -8,6 +8,10 @@ public class WorldManager : MonoBehaviour
     public static WorldManager Instance => _instance;
 
     [HideInInspector] public Transform homeStation;
+
+    [SerializeField] GameObject babyStationPrefab;
+    Dictionary<StationType, GameObject> stationPrefabs = new Dictionary<StationType, GameObject>();
+
     private void Awake()
     {
         //Make this an Instance
@@ -42,6 +46,8 @@ public class WorldManager : MonoBehaviour
             Debug.LogError("Too Many Home Stations!");
         }
 
+        // Create station dictionary
+        stationPrefabs.Add(StationType.BabyStation, babyStationPrefab);
     }
 
     public Transform getClosestStation(Transform temp)
@@ -67,5 +73,10 @@ public class WorldManager : MonoBehaviour
         }
 
         return closest;
+    }
+
+    public Station PlaceStation(StationType type, Vector3 position) {
+        Station station = Instantiate(stationPrefabs[type], position, Quaternion.identity, transform).GetComponent<Station>();
+        return station;
     }
 }

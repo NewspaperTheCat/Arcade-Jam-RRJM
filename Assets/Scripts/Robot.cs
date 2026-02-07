@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,33 +16,45 @@ public class Robot : MonoBehaviour
     [SerializeField] Image ChargeBar;
     [SerializeField] float passiveDecay;
 
+    // Item related values
+    [Header("Items/Stations")]
     Item carrying = null;
+    [SerializeField] float buildTime;
+    float buildStartTime = 0;
 
     public enum RobotState
     {
         Normal,
-        NoPower
+        NoPower,
+        Building
     }
 
     private RobotState robotState;
 
     void Start() {
-        InputManager.inst.interact.AddListener(Interact);
+        InputManager.inst.drop.AddListener(DropItem);
+        InputManager.inst.buildStart.AddListener(BuildStart);
+        InputManager.inst.buildEnd.AddListener(BuildEnd);
     }
 
     // Update is called once per frame
     void Update() {
-
+        Debug.Log(robotState);
         switch (robotState)
         {
             case RobotState.Normal:
                 NormalUpdate();
                 break;
             case RobotState.NoPower:
-                if (charge > noChargeAmount)
-                {
+                if (charge > noChargeAmount) {
                     robotState = RobotState.Normal;
                 }
+                break;
+            case RobotState.Building:
+                Debug.Log("progressing building");
+                if (Time.time - buildStartTime >= buildTime) {
+                    BuildCarrying();
+                } 
                 break;
         }
 
@@ -93,11 +106,35 @@ public class Robot : MonoBehaviour
     public void PickUpItem(Item item) {
         carrying = item;
         item.transform.SetParent(transform);
-        item.transform.localPosition = Vector3.up * 1.125f;
+        item.transform.localPosition = Vector3.forward * 1.125f;
         item.SetAnchor();
     }
 
-    public void Interact() {
-        Debug.Log("Carrying item? " + carrying);
+    public void DropItem() {
+        if (carrying != null) {
+            Debug.Log("Specifically: " + carrying.cargo);
+            carrying.Drop();
+        }
+    }
+
+    public void BuildStart() {
+        if (carrying != null) {
+            robotState = RobotState.Building;
+            buildStartTime = Time.time;
+            Debug.Log("Build started");
+        }
+    }
+
+    public void BuildEnd() {
+        robotState = RobotState.Normal;
+        Debug.Log("Build ended");
+    }
+
+    public void BuildCarrying() {
+        Debug.Log("Building placed!!");
+        WorldManager.Instance.PlaceStation(carrying.cargo, transform.position + transform.forward);
+        Destroy(carrying.gameObject);
+        carrying = null;
+        BuildEnd();
     }
 }
