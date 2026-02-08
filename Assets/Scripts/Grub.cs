@@ -69,6 +69,7 @@ public class Grub : Enemy
     {
         animator.SetTrigger("Attack");
         Invoke("DealDamage", dealDamageDelay);
+        GetComponent<AudioSource>().Play();
         justArrived = false;
         enemyState = EnemyState.InRange;
     }

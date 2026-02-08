@@ -139,6 +139,10 @@ public class Robot : MonoBehaviour
         // hop into air
         hopVelocity = Mathf.Max(hopAmount, hopVelocity + hopAmount);
 
+        // play sound
+        GetComponent<AudioSource>().pitch = Random.Range(.8f, 1.2f);
+        GetComponent<AudioSource>().Play();
+
         // Trigger first charge
         if (!firstCharge) {
             firstCharge = true;

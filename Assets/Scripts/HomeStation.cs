@@ -30,6 +30,7 @@ public class HomeStation : Station
                 transform.position = Vector3.zero;
                 landed = true;
                 landingParticles.Play();
+                GetComponent<AudioSource>().Play();
                 SpawnPlayers();
             }
         }
