@@ -135,23 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _WorldManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1682530218340795010, guid: a717c6ceb2a108d4bab37e1c303d9b05,
-        type: 3}
-      propertyPath: increaseEnemyWaveCost
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6290467591410379723, guid: a717c6ceb2a108d4bab37e1c303d9b05,
-        type: 3}
-      propertyPath: zeusPrefab
-      value: 
-      objectReference: {fileID: 7000422821071341948, guid: 354c63113e1da78449bce50e09a1265a,
-        type: 3}
-    - target: {fileID: 6290467591410379723, guid: a717c6ceb2a108d4bab37e1c303d9b05,
-        type: 3}
-      propertyPath: robotPrefab
-      value: 
-      objectReference: {fileID: 3795133235878959375, guid: 099155f6bb5cd4846bd772cee07592e8,
-        type: 3}
     - target: {fileID: 7382208100022750107, guid: a717c6ceb2a108d4bab37e1c303d9b05,
         type: 3}
       propertyPath: m_LocalPosition.x
