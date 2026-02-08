@@ -19,10 +19,15 @@ public class Keyboard : MonoBehaviour
 
     private List<RectTransform> keys = new();
 
+    private Vector2 cursorPosition;
+    private RectTransform[,] grid;
+
     private void Start()
     {
         container = GetComponent<RectTransform>();
         CreateGrid();
+
+        cursorPosition = new Vector2(0, 0);
     }
 
     private void CreateGrid()
@@ -42,6 +47,8 @@ public class Keyboard : MonoBehaviour
                 RectTransform key = Instantiate(prefab, container);
                 keys.Add(key);
 
+                grid[r, c] = key;
+
                 float x = (c * cellWidth + cellWidth * 0.5f) - (container.rect.width / 2);
                 float y = -(r * cellHeight + cellHeight * 0.5f) + (container.rect.height / 2);
 
@@ -55,5 +62,16 @@ public class Keyboard : MonoBehaviour
 
             }
         }
+    }
+
+    private RectTransform MoveCursor (int row, int col)
+    {
+        if (row < 0 || col < 0 || row >= rows || col >= cols)
+        {
+            Debug.LogWarning("Get Cell out of range!");
+            return null;
+        }
+
+        return grid[row, col];
     }
 }
