@@ -43,6 +43,9 @@ public abstract class Station: MonoBehaviour{
         {
             Debug.LogError("You Didn't Set the Type Dummy!");
         }
+
+        // Random rotation
+        transform.Rotate(Vector3.up * Random.Range(0, 360));
     }
     
     public StationType getStationType()
