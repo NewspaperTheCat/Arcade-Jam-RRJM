@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner inst;
 
     [Header("Enemies")]
     [SerializeField] private List<Enemy> enemies = new List<Enemy>();
@@ -47,8 +48,12 @@ public class EnemySpawner : MonoBehaviour
         Gizmos.DrawSphere(centerOfSpawn.position, spawnRadius);
     }
 
-    void Start()
-    {
+    void Awake() {
+        inst = this;
+        enabled = false;
+    }
+
+    void OnEnable() {
         currentWaveDuration = initialWaveDuration;
         currWave = staringWave;
         centerOfSpawn = gameObject.transform;

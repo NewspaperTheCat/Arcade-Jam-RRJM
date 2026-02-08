@@ -73,7 +73,7 @@ MonoBehaviour:
   initialWaveDuration: 10
   increaseWaveDuration: 5
   initialEnemyWaveCost: 2
-  increaseEnemyWaveCost: 2
+  increaseEnemyWaveCost: 4
   debug: 0
   staringWave: 0
   currWave: 0
