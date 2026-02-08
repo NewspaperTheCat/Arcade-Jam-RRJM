@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  hopAmount: 3.5
   noChargeAmount: 0.1
-  ChargeBar: {fileID: 0}
   robotMaterial: {fileID: 2100000, guid: acc7b49092e530e4fbc45c5f384bc3c7, type: 2}
   passiveDecay: 0.1
   buildTime: 2
@@ -4985,7 +4985,7 @@ Transform:
   m_GameObject: {fileID: 8179399143698610464}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.987}
+  m_LocalPosition: {x: 0, y: 0.325, z: 0.987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
