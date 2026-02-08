@@ -60,6 +60,8 @@ MonoBehaviour:
   dealDamageDelay: 2.5
   loopAttackCooldown: 4.944667
   enableGizmos: 1
+  SFX: {fileID: 7119017422274904092, guid: aac74f0d7fda14f4bb2478d3fd1838aa, type: 3}
+  deathSound: {fileID: 8300000, guid: bfad0b7894a7ad642a306ca9a694c4f8, type: 3}
 --- !u!65 &8450384649708740381
 BoxCollider:
   m_ObjectHideFlags: 0

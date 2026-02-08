@@ -18,12 +18,13 @@ public class Robot : MonoBehaviour
     [Header("Charge")]
     float charge = 1; // max charge = 1, empty = 0
     [SerializeField] float noChargeAmount; // max charge = 1, empty = 0
-    Image chargeBar;
+    EnergyMeter chargeBar;
     [SerializeField] Material robotMaterial;
     [SerializeField] float passiveDecay;
     [SerializeField] float superChargeThreshold;
     [SerializeField] int superChargeDamage;
     [SerializeField] ParticleSystem superChargeParticles;
+    [SerializeField] AudioSource powerDownSource;
 
     // Item related values
     [Header("Items/Stations")]
@@ -42,7 +43,7 @@ public class Robot : MonoBehaviour
     private RobotState robotState;
 
     void Start() {
-        chargeBar = GameObject.FindWithTag("ChargeBar").GetComponent<Image>();
+        chargeBar = GameObject.FindWithTag("ChargeBar").GetComponent<EnergyMeter>();
 
         InputManager.inst.drop.AddListener(DropItem);
         InputManager.inst.buildStart.AddListener(BuildStart);
@@ -119,6 +120,8 @@ public class Robot : MonoBehaviour
         {
             velocity = Vector2.zero;
             robotState = RobotState.NoPower;
+            powerDownSource.pitch = Random.Range(.7f, 1.1f);
+            powerDownSource.Play();
         }
     }
 
@@ -151,7 +154,8 @@ public class Robot : MonoBehaviour
     }
 
     private void UpdateChargeMeter() {
-        chargeBar.fillAmount = charge;
+        if (charge < 0) charge = 0;
+        chargeBar.SetCharge(charge);
         robotMaterial.SetVector("_EmissionColor", new Vector4(charge * 2, charge * 2, charge, 1.0f));
 
         // And particles for super charge

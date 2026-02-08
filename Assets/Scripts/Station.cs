@@ -85,6 +85,9 @@ public abstract class Station: MonoBehaviour{
         float total =  destructionParticles.main.duration + 2;
         float duration = total;
 
+        GetComponent<AudioSource>().pitch = Random.Range(.8f, 1.2f);
+        GetComponent<AudioSource>().Play();
+
         Transform model = transform.GetChild(0); // Scuffed as hell, just add proper references
 
         destructionParticles.Play();

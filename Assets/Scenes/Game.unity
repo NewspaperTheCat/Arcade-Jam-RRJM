@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 591859915}
   - component: {fileID: 591859917}
   - component: {fileID: 591859916}
+  - component: {fileID: 591859918}
   m_Layer: 5
   m_Name: ChargeBar
   m_TagString: ChargeBar
@@ -662,7 +663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -1903484710, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -680,6 +681,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591859914}
   m_CullTransparentMesh: 1
+--- !u!114 &591859918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591859914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f377c09c67f07042b5a184dbdbc0040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: -1885597141, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1402436865, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1460674013, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1218382473, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1134323459, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1100440880, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 407873387, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -831302613, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1475381073, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 122298546, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -931871597, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -818857716, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 354074089, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1405752582, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 565363573, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1099523637, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1213623694, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1903484710, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1381749682, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1884704387, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1587314088, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1243847189, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -371155384, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -718807783, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 83644036, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1117931001, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1935940396, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -97979555, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 725752202, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1590338572, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1360270921, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1484891569, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1849981491, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1594333971, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1634520093, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1274060682, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 273433797, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 555113804, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -415979483, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 1360267947, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1691026965, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 223874169, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: 2043871226, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1480193921, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
+  - {fileID: -1987829090, guid: a9335316ab2babe40812662bd3c60ae6, type: 3}
 --- !u!1 &778778827
 GameObject:
   m_ObjectHideFlags: 0
