@@ -24,6 +24,7 @@ public abstract class Enemy : MonoBehaviour {
     [Header("Value")]
     [SerializeField] protected int cost;
     [SerializeField] protected int pointWorth;
+    [SerializeField] ParticleSystem deathParticles;
 
     [Header("Distance")]
     [SerializeField] protected float moveSpeed;
@@ -32,6 +33,7 @@ public abstract class Enemy : MonoBehaviour {
     [Header("Attack")]
     [SerializeField] protected int attackDamage;
     [SerializeField] protected float arrivalAttackCooldown;
+    [SerializeField] protected float dealDamageDelay;
     [SerializeField] protected float loopAttackCooldown;
 
     [Space(10)]
@@ -85,8 +87,10 @@ public abstract class Enemy : MonoBehaviour {
 
     public abstract void InRange(Transform target);
 
-    public virtual void DealDamage(Station station)
+    public virtual void DealDamage()
     {
+        if (currentTarget == null) return;
+        Station station = currentTarget.GetComponent<Station>();
         station.TakeDamage(attackDamage);
     }
 
@@ -101,9 +105,13 @@ public abstract class Enemy : MonoBehaviour {
     public virtual void Die()
     {
         // roll chance to drop item
-        if (Random.Range(0, 10) >= 6) {
+        if (Random.Range(0, 10) >= 8) {
             WorldManager.Instance.SpawnItem(transform.position);
         }
+
+        deathParticles.transform.SetParent(WorldManager.Instance.transform);
+        deathParticles.Play();
+        Destroy(deathParticles.gameObject, deathParticles.main.duration);
 
         GameManager.Instance.AddPoints(pointWorth);
         Destroy(gameObject);

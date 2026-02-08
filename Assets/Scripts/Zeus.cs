@@ -16,19 +16,25 @@ public class Zeus : MonoBehaviour
 
     [Header("Smite")]
     [SerializeField] float smiteRadius;
+    [SerializeField] float smiteCooldown;
     [SerializeField] LineRenderer lightningArc;
     [SerializeField] ParticleSystem smiteBurst;
+    [SerializeField] Material targetMaterial; // used to display if charge is ready
     bool smiteReady = true;
 
     void Start() {
         InputManager.inst.smite.AddListener(Smite);
         lightningArc.enabled = false;
+
+        targetMaterial.SetVector("_EmissionColor", new Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+        smiteReady = true;
     }
 
     // Update is called once per frame
     void Update() {
         // Gather Player Input
         velocity += InputManager.inst.GetZeusMovement() * playerInfluence * Time.deltaTime;
+        transform.LookAt(transform.position + new Vector3(velocity.x, 0, velocity.y));
 
         // Apply Friction
         velocity -= velocity * friction * Time.deltaTime;
@@ -63,6 +69,11 @@ public class Zeus : MonoBehaviour
 
         // List of collided stuff
         List<Transform> collisions = new List<Transform>();
+
+        // ready target flashing
+        bool flashOn = true;
+        Vector4 off = new Vector4(.0f, .0f, .0f, 1.0f);
+        Vector4 on = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 
         // Retrigger randomly over duration
         float duration = .625f;
@@ -101,13 +112,22 @@ public class Zeus : MonoBehaviour
                 }
             }
 
+            // Flash target
+            if (flashOn) targetMaterial.SetVector("_EmissionColor", off);
+            else targetMaterial.SetVector("_EmissionColor", on);
+            flashOn = !flashOn;
+
             yield return new WaitForSeconds(delay);
         }
 
+        // Display the cooldown
+        targetMaterial.SetVector("_EmissionColor", off);
         lightningArc.enabled = false;
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(smiteCooldown);
 
+        // Return to ready
+        targetMaterial.SetVector("_EmissionColor", on);
         smiteReady = true;
     }
 

@@ -10,6 +10,7 @@ public class PlayerChecker : MonoBehaviour
     [SerializeField] TextMeshProUGUI p1Connectivity, p2Connectivity;
     bool p1Joined, p2Joined;
     const String waitingText = "-> JOIN <-", readyText = "Ready!";
+    bool starting = false;
 
 
     // Start is called before the first frame update
@@ -35,16 +36,27 @@ public class PlayerChecker : MonoBehaviour
             P2Connected();
         }
 
-        if (p1Joined && p2Joined) { SceneManager.LoadScene("Game"); }
+        if (!starting && p1Joined && p2Joined) {
+            starting = true;
+            p1Connectivity.text = "Starting...";
+            p2Connectivity.text = "Starting...";
+            Invoke("ToGame", 1);
+        }
     }
 
     void P1Connected() {
+        if (starting || p1Joined) return;
         p1Connectivity.text = readyText;
         p1Joined = true;
     }
 
     void P2Connected() {
+        if (starting || p2Joined) return;
         p2Connectivity.text = readyText;
         p2Joined = true;
+    }
+
+    private void ToGame() {
+        SceneManager.LoadScene("Game");
     }
 }

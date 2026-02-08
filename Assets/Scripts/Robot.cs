@@ -21,6 +21,9 @@ public class Robot : MonoBehaviour
     Image chargeBar;
     [SerializeField] Material robotMaterial;
     [SerializeField] float passiveDecay;
+    [SerializeField] float superChargeThreshold;
+    [SerializeField] int superChargeDamage;
+    [SerializeField] ParticleSystem superChargeParticles;
 
     // Item related values
     [Header("Items/Stations")]
@@ -146,6 +149,13 @@ public class Robot : MonoBehaviour
     private void UpdateChargeMeter() {
         chargeBar.fillAmount = charge;
         robotMaterial.SetVector("_EmissionColor", new Vector4(charge * 2, charge * 2, charge, 1.0f));
+
+        // And particles for super charge
+        if (charge < superChargeThreshold) {
+            superChargeParticles.Stop();
+        } else if (!superChargeParticles.isPlaying) {
+            superChargeParticles.Play();
+        }
     }
 
     public bool PickUpItem(Item item) {
@@ -195,5 +205,13 @@ public class Robot : MonoBehaviour
         robotState = RobotState.NoPower;
         float angle = Random.Range(0, 2 * Mathf.PI);
         velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 10f; // shoot off in a random direction
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.transform.GetComponent<Enemy>() != null && charge >= superChargeThreshold) {
+            Enemy hit = other.transform.GetComponent<Enemy>();
+            hit.TakeDamage(superChargeDamage);
+            // Dealing contact damage
+        }
     }
 }
