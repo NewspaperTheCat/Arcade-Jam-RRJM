@@ -10,6 +10,9 @@ public class Grub : Enemy
     // Animation
     Animator animator;
 
+    [SerializeField] GameObject SFX;
+    [SerializeField] AudioClip deathSound;
+
     protected override void Start()
     {
         base.Start();
@@ -69,10 +72,24 @@ public class Grub : Enemy
     {
         animator.SetTrigger("Attack");
         Invoke("DealDamage", dealDamageDelay);
+        GetComponent<AudioSource>().Play();
         justArrived = false;
         enemyState = EnemyState.InRange;
     }
 
-    
+    public override void Die() {
+        PlayDeath();
+        base.Die();
+    }
+
+    private void PlayDeath() {
+        AudioSource sfx = Instantiate(SFX, transform.position, Quaternion.identity).GetComponent<AudioSource>();
+        sfx.clip = deathSound;
+        Destroy(sfx.gameObject, deathSound.length + .5f);
+
+        sfx.pitch = Random.Range(.8f, 1.2f);
+        sfx.volume = .5f;
+        sfx.Play();
+    }
 }
 

@@ -9784,6 +9784,8 @@ MonoBehaviour:
   lightningArc: {fileID: 2246688028081537535}
   smiteBurst: {fileID: 6404641091783257740}
   targetMaterial: {fileID: 2100000, guid: ae0e11d22b3163849b003057fca6116e, type: 2}
+  SFX: {fileID: 7119017422274904092, guid: aac74f0d7fda14f4bb2478d3fd1838aa, type: 3}
+  thunderClip: {fileID: 8300000, guid: 2fd97d328ec604743b5f08623d49582c, type: 3}
 --- !u!1 &9078324740920309937
 GameObject:
   m_ObjectHideFlags: 0

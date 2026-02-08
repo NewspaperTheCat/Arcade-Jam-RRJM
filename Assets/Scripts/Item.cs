@@ -41,6 +41,8 @@ public class Item : MonoBehaviour
         state = ItemState.DROPPING;
         time_dropped = Time.time;
 
+        GetComponent<Collider>().enabled = false;
+
         Vector2 dir = Random.insideUnitCircle * DROP_DISTANCE;
         SetAnchor(new Vector3(dir.x + transform.localPosition.x, 0, dir.y + transform.localPosition.z));
     }
@@ -54,6 +56,7 @@ public class Item : MonoBehaviour
         transform.Rotate(Vector3.up * BOB_ROTATION * Time.deltaTime);
 
         if (state == ItemState.DROPPING && Time.time - time_dropped > DROP_TIME) {
+            GetComponent<Collider>().enabled = true;
             state = ItemState.IDLE;
         }
     }

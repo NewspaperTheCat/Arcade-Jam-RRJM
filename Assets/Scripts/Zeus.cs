@@ -20,6 +20,9 @@ public class Zeus : MonoBehaviour
     [SerializeField] LineRenderer lightningArc;
     [SerializeField] ParticleSystem smiteBurst;
     [SerializeField] Material targetMaterial; // used to display if charge is ready
+    [SerializeField] GameObject SFX;
+    [SerializeField] AudioClip thunderClip;
+
     bool smiteReady = true;
 
     void Start() {
@@ -76,8 +79,10 @@ public class Zeus : MonoBehaviour
         Vector4 on = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 
         // Retrigger randomly over duration
-        float duration = .625f;
+        float maxDuration = .625f;
+        float duration = maxDuration;
         while (duration > 0) {
+
             // Get Duration
             float delay = Random.Range(0.1f, 0.3f);
             if (duration < delay) delay = duration;
@@ -117,6 +122,9 @@ public class Zeus : MonoBehaviour
             else targetMaterial.SetVector("_EmissionColor", on);
             flashOn = !flashOn;
 
+            // Play thunder
+            PlayThunder(delay, (duration + delay) / maxDuration);
+
             yield return new WaitForSeconds(delay);
         }
 
@@ -133,5 +141,15 @@ public class Zeus : MonoBehaviour
 
     public void Spawn() {
         return;
+    }
+ 
+    private void PlayThunder(float duration, float remaining) {
+        AudioSource sfx = Instantiate(SFX, transform.position + Vector3.up * 3, Quaternion.identity).GetComponent<AudioSource>();
+        sfx.clip = thunderClip;
+        Destroy(sfx.gameObject, thunderClip.length + .5f);
+
+        sfx.pitch = (.3f - duration) * 2f + .8f + remaining * .9f;
+        sfx.volume = remaining;
+        sfx.Play();
     }
 }
