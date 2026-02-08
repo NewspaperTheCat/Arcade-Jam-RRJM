@@ -54,6 +54,17 @@ public class Keyboard : MonoBehaviour
         CreateGrid();
 
         cursorPosition = new Vector2Int(0, 0);
+
+
+        if (characterControl == CharacterControl.Zeus)
+        {
+            InputManager.inst.smite.AddListener(Smite);
+        }
+
+        if (characterControl == CharacterControl.Robot)
+        {
+            InputManager.inst.buildStart.AddListener(BuildStart);
+        }
     }
 
     private void Update()
@@ -308,5 +319,15 @@ public class Keyboard : MonoBehaviour
     {
         displayText.color = Color.black;
         nameSelected = NameSelected.Missing;
+    }
+
+    public void Smite()
+    {
+        InputKey();
+    }
+
+    public void BuildStart()
+    {
+        InputKey();
     }
 }
