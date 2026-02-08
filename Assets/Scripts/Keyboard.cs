@@ -32,7 +32,7 @@ public class Keyboard : MonoBehaviour
 
     private float currentCooldown;
 
-    enum NameSelected
+    public enum NameSelected
     {
         Missing,
         Selected
@@ -45,7 +45,7 @@ public class Keyboard : MonoBehaviour
         Zeus
     }
 
-    private NameSelected nameSelected = NameSelected.Missing;
+    [HideInInspector] public NameSelected nameSelected = NameSelected.Missing;
     [SerializeField] private CharacterControl characterControl;
 
     private void Start()

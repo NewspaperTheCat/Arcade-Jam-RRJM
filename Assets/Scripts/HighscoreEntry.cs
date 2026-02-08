@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class HighscoreEntry : MonoBehaviour
+[System.Serializable]
+public struct HighScoreEntry
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string name;
+    public int points;
 
-    // Update is called once per frame
-    void Update()
+    public HighScoreEntry(string name, int points)
     {
-        
+        this.name = name;
+        this.points = points;
     }
 }
