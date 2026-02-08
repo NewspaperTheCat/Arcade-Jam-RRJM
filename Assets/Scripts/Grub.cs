@@ -38,7 +38,7 @@ public class Grub : Enemy
 
     public override void InRange(Transform target)
     {
-        if (target == null)
+        if (target == null || !target.GetComponent<Station>().IsAlive())
         {
             GetNewTarget();
             return;
