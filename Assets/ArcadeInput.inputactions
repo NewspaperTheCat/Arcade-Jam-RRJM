@@ -201,7 +201,7 @@
                 {
                     "name": "",
                     "id": "da5f0277-d793-42b5-98ba-eafe39d2524b",
-                    "path": "<Keyboard>/j",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -223,7 +223,18 @@
                 {
                     "name": "",
                     "id": "74cf1110-dc32-4dbf-9ff1-cf1f34d67cd4",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Smite",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "378e98b1-30ea-4155-b829-ac9ee4ac962f",
+                    "path": "<WebGLGamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -234,7 +245,7 @@
                 {
                     "name": "",
                     "id": "e2e87e59-91ae-4b54-b945-86760d5e9d3d",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -256,7 +267,18 @@
                 {
                     "name": "",
                     "id": "e62ddffb-9c7b-4563-8f92-34be6b1aa808",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e7fb182-1385-44e9-8bb7-12409aca46c7",
+                    "path": "<WebGLGamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
