@@ -1,11 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using static UnityEngine.GraphicsBuffer;
 
 public class Grub : Enemy
 {
+    // Animation
+    Animator animator;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        animator = GetComponentInChildren<Animator>();
+    }
+
     protected void Update()
     {
         switch (enemyState)
@@ -29,6 +40,7 @@ public class Grub : Enemy
         }
 
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
+        transform.LookAt(target.position);
 
         if (Vector3.Distance(transform.position, target.position) <= enemyArriveDistance) {
             enemyState = EnemyState.InRange;
@@ -55,9 +67,12 @@ public class Grub : Enemy
     }
     public override void Attack()
     {
-        DealDamage(currentTarget.GetComponent<Station>());
+        animator.SetTrigger("Attack");
+        Invoke("DealDamage", dealDamageDelay);
         justArrived = false;
         enemyState = EnemyState.InRange;
     }
+
+    
 }
 

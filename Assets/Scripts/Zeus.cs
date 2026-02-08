@@ -34,6 +34,7 @@ public class Zeus : MonoBehaviour
     void Update() {
         // Gather Player Input
         velocity += InputManager.inst.GetZeusMovement() * playerInfluence * Time.deltaTime;
+        transform.LookAt(transform.position + new Vector3(velocity.x, 0, velocity.y));
 
         // Apply Friction
         velocity -= velocity * friction * Time.deltaTime;

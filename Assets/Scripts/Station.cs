@@ -85,18 +85,18 @@ public abstract class Station: MonoBehaviour{
         float total =  destructionParticles.main.duration + 2;
         float duration = total;
 
+        Transform model = transform.GetChild(0); // Scuffed as hell, just add proper references
+
         destructionParticles.Play();
 
         float height = 1.5f;
-        Vector3 xzStart = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 xzStart = new Vector3(model.position.x, 0, model.position.z);
 
         while (duration > 0) {
             duration -= Time.deltaTime;
 
             Vector3 shake = new Vector3(Random.Range(-.125f, .125f), 0, Random.Range(-.125f, .125f));
-            transform.position = xzStart + shake - Vector3.up * (height * (1 - duration / total));
-
-            destructionParticles.transform.position -= Vector3.up * destructionParticles.transform.position.y;
+            model.position = xzStart + shake - Vector3.up * (height * (1 - duration / total));
 
             yield return new WaitForEndOfFrame();
         }

@@ -20,6 +20,7 @@ public class InputManager : MonoBehaviour
     public UnityEvent drop = new UnityEvent();
     public UnityEvent buildStart = new UnityEvent();
     public UnityEvent buildEnd = new UnityEvent();
+    public UnityEvent escape = new UnityEvent();
     float double_tap_start_time = -10;
     const float DOUBLE_TAP_MAX = .5f;
 
@@ -73,4 +74,12 @@ public class InputManager : MonoBehaviour
             buildEnd.Invoke();
         }
     }
+
+    
+    public void OnEscape(InputAction.CallbackContext context) {
+        if (context.performed) {
+            escape.Invoke();
+        }
+    }
+
 }

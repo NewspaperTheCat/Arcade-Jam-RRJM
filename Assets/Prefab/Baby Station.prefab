@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableGizmos: 1
-  maxHealth: 50
+  maxHealth: 40
   meshRenderer: {fileID: 4103495843881037138}
   stationType: 2
   destructionParticles: {fileID: 3472142320671712933}
