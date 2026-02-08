@@ -20,8 +20,6 @@ public class BabyStation : Station
     }
 
     private void Charge() { 
-        Renderer rend = transform.GetChild(0).GetComponent<Renderer>();
-        rend.material.color = Color.green;
         currentExplosionRechargeTime = explosionRechargeTime;
         stationState = StationState.Normal;
     }
@@ -62,8 +60,6 @@ public class BabyStation : Station
         }
 
         stationState = StationState.Cooldown;
-        Renderer rend = transform.GetChild(0).GetComponent<Renderer>();
-        rend.material.color = Color.red;
     }
 
     public override void Recharge()

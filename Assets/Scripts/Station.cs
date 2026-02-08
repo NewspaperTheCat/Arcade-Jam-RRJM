@@ -25,6 +25,7 @@ public abstract class Station: MonoBehaviour{
     [SerializeField] protected int maxHealth;
     [SerializeField] protected MeshRenderer meshRenderer;
     [SerializeField] protected StationType stationType;
+    [SerializeField] protected ParticleSystem destructionParticles;
 
     protected int currentHealth;
 
@@ -74,7 +75,34 @@ public abstract class Station: MonoBehaviour{
     public virtual void Die()
     {
         meshRenderer.materials[0].SetVector("_EmissionColor", new Vector4(0, 0, 0, 1.0f));
-        GameManager.Instance.AddPoints(100);
+        StartCoroutine("DeathSequence");
+    }
+
+    IEnumerator DeathSequence() {
+        float total =  destructionParticles.main.duration + 2;
+        float duration = total;
+
+        destructionParticles.Play();
+
+        float height = 1.5f;
+        Vector3 xzStart = new Vector3(transform.position.x, 0, transform.position.z);
+
+        while (duration > 0) {
+            duration -= Time.deltaTime;
+
+            Vector3 shake = new Vector3(Random.Range(-.125f, .125f), 0, Random.Range(-.125f, .125f));
+            transform.position = xzStart + shake - Vector3.up * (height * (1 - duration / total));
+
+            destructionParticles.transform.position -= Vector3.up * destructionParticles.transform.position.y;
+
+            yield return new WaitForEndOfFrame();
+        }
+        
+        // At the end destroy this
         Destroy(gameObject);
+    }
+
+    public bool IsAlive() {
+        return currentHealth > 0;
     }
 }

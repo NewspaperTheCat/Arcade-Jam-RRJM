@@ -194,6 +194,6 @@ public class Robot : MonoBehaviour
         charge = 0;
         robotState = RobotState.NoPower;
         float angle = Random.Range(0, 2 * Mathf.PI);
-        velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 15f; // shoot off in a random direction
+        velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 10f; // shoot off in a random direction
     }
 }

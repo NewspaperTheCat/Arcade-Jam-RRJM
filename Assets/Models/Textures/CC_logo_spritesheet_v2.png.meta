@@ -1,0 +1,787 @@
+fileFormatVersion: 2
+guid: e6e57d99cc79caa4899439b051d652da
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25246e8eb0a12e649b2ac5cfe64ec5a6
+      internalID: 1004231146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_1
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 672
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245309ec5e871cc49806eec7722bbee2
+      internalID: 1239809365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_2
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 672
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e771654f613d0b47b8c2dc29f9f0466
+      internalID: -840520456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_3
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 672
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e02e8dbc3fff0d74abb6e661be2fe970
+      internalID: -452582636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a636426e387e7479b7b3c9efdc1a4b
+      internalID: 1711997574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_5
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 576
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e4e78843ef340479aff63accc84875
+      internalID: -1297172079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_6
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 576
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c5d51d2f89438478935740bbe8ca73
+      internalID: -120833660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_7
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 576
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31997d1382cc5a4cb8881f671512f8d
+      internalID: 636498458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8fe11ec4d726a4090c527502c09563
+      internalID: 745007243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_9
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 480
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aefc6e5ce089a34b8201910438a8b11
+      internalID: 1936504250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_10
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 480
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b557e1a028632c42a510358002872ca
+      internalID: 571662067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_11
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 480
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37237f50f10ae841ad92a974bedd961
+      internalID: 678845242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ea1c6d6ea1872499b3a84d4fcd38da
+      internalID: -1101536554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_13
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 384
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121a012f4fb6a2646bafe171b2f68dc4
+      internalID: 1163845436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_14
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 384
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9045a3ba9dfed94db76fbe913378890
+      internalID: 1557172396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_15
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 384
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a5439f6b0f1b842b1b3c91889ab48e
+      internalID: 1792585703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520e0d6a00fdf844a91ceaf9bf31444e
+      internalID: 620999664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_17
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 288
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950a170ed41b5ec4590d179eda923198
+      internalID: -1613279948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_18
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 288
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d2140f87463db459050ca87ec84df8
+      internalID: 104506611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_19
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 288
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6250a2275bdacf445af0cfb2e68e8ccd
+      internalID: 743201820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9ae7b8d3be37344a13e08771749c69
+      internalID: -139994206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_21
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 192
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94354b0b3c0ce6240851e9366d3a2b15
+      internalID: -1772537296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_22
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 192
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c63c9fa39b85f4a89cd753b3b27545
+      internalID: 467621376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_23
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 192
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a834cedf0cf64d344a2c94696e613106
+      internalID: -1258172032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c01cf86c1da3348b41646a3484a32e
+      internalID: 58527183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_25
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 96
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b6fea467581514283de8a8b540d423
+      internalID: 1388986386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_26
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 96
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ff5367a7a2dcf4eae35349e8eadbd6
+      internalID: 619057465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_27
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 96
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faff1cc4934b47543a679773b758bdf7
+      internalID: -1003586682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727f2bd979efbe64e8207793dab1cc3d
+      internalID: -1840653465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CC_logo_spritesheet_v2_29
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 408
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d85f985708afe049a2b8f4fa5d22f1e
+      internalID: -2021964065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: cd0fee134a3396d498ec6cbc77b78404
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      CC_logo_spritesheet_v2_0: 1004231146
+      CC_logo_spritesheet_v2_1: 1239809365
+      CC_logo_spritesheet_v2_10: 571662067
+      CC_logo_spritesheet_v2_11: 678845242
+      CC_logo_spritesheet_v2_12: -1101536554
+      CC_logo_spritesheet_v2_13: 1163845436
+      CC_logo_spritesheet_v2_14: 1557172396
+      CC_logo_spritesheet_v2_15: 1792585703
+      CC_logo_spritesheet_v2_16: 620999664
+      CC_logo_spritesheet_v2_17: -1613279948
+      CC_logo_spritesheet_v2_18: 104506611
+      CC_logo_spritesheet_v2_19: 743201820
+      CC_logo_spritesheet_v2_2: -840520456
+      CC_logo_spritesheet_v2_20: -139994206
+      CC_logo_spritesheet_v2_21: -1772537296
+      CC_logo_spritesheet_v2_22: 467621376
+      CC_logo_spritesheet_v2_23: -1258172032
+      CC_logo_spritesheet_v2_24: 58527183
+      CC_logo_spritesheet_v2_25: 1388986386
+      CC_logo_spritesheet_v2_26: 619057465
+      CC_logo_spritesheet_v2_27: -1003586682
+      CC_logo_spritesheet_v2_28: -1840653465
+      CC_logo_spritesheet_v2_29: -2021964065
+      CC_logo_spritesheet_v2_3: -452582636
+      CC_logo_spritesheet_v2_4: 1711997574
+      CC_logo_spritesheet_v2_5: -1297172079
+      CC_logo_spritesheet_v2_6: -120833660
+      CC_logo_spritesheet_v2_7: 636498458
+      CC_logo_spritesheet_v2_8: 745007243
+      CC_logo_spritesheet_v2_9: 1936504250
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
