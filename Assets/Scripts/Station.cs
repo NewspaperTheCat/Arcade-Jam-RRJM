@@ -23,6 +23,7 @@ public abstract class Station: MonoBehaviour{
 
     [Header("Type")]
     [SerializeField] protected int maxHealth;
+    [SerializeField] protected MeshRenderer meshRenderer;
     [SerializeField] protected StationType stationType;
 
     protected int currentHealth;
@@ -31,6 +32,10 @@ public abstract class Station: MonoBehaviour{
 
     protected virtual void Start()
     {
+        // make material unique
+        Material clone = Instantiate<Material>(meshRenderer.materials[0]);
+        meshRenderer.materials[0] = clone;
+
         currentHealth = maxHealth;
 
         if (stationType == StationType.None)
@@ -56,14 +61,19 @@ public abstract class Station: MonoBehaviour{
 
     public void TakeDamage(int amount)
     {
+        Debug.Log("took damage: " + amount);
         currentHealth -= amount;
         if (currentHealth <= 0)
-        {
             Die();
+        else {
+            float pHealth = currentHealth / (float)maxHealth;
+            Debug.Log(pHealth);
+            meshRenderer.materials[0].SetVector("_EmissionColor", new Vector4(pHealth, pHealth, pHealth, 1.0f));
         }
     }
     public virtual void Die()
     {
+        meshRenderer.materials[0].SetVector("_EmissionColor", new Vector4(0, 0, 0, 1.0f));
         GameManager.Instance.AddPoints(100);
         Destroy(gameObject);
     }

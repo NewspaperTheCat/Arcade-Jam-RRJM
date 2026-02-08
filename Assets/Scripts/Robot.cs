@@ -22,6 +22,7 @@ public class Robot : MonoBehaviour
     Item carrying = null;
     [SerializeField] float buildTime;
     float buildStartTime = 0;
+    [SerializeField] ParticleSystem buildParticles;
 
     public enum RobotState
     {
@@ -36,6 +37,10 @@ public class Robot : MonoBehaviour
         InputManager.inst.drop.AddListener(DropItem);
         InputManager.inst.buildStart.AddListener(BuildStart);
         InputManager.inst.buildEnd.AddListener(BuildEnd);
+
+        // stupid work around to set duration
+        var main = buildParticles.main;
+        main.duration = buildTime;
     }
 
     // Update is called once per frame
@@ -126,6 +131,7 @@ public class Robot : MonoBehaviour
         if (carrying != null && robotState == RobotState.Normal) {
             robotState = RobotState.Building;
             buildStartTime = Time.time;
+            buildParticles.Play();
             Debug.Log("Build started");
         }
     }
@@ -133,6 +139,7 @@ public class Robot : MonoBehaviour
     public void BuildEnd() {
         if (robotState == RobotState.Building) {
             robotState = RobotState.Normal;
+            buildParticles.Stop();
             Debug.Log("Build ended");
         }
     }
