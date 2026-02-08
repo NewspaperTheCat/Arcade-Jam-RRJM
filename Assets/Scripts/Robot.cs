@@ -9,11 +9,16 @@ public class Robot : MonoBehaviour
     [SerializeField] float speed;
 
     Vector2 velocity;
+    [SerializeField] float hopAmount;
+    float hopVelocity = 0;
+
+    // Miscellaneous: for intro sequence
+    bool firstCharge;
 
     [Header("Charge")]
     float charge = 1; // max charge = 1, empty = 0
     [SerializeField] float noChargeAmount; // max charge = 1, empty = 0
-    [SerializeField] Image ChargeBar;
+    Image chargeBar;
     [SerializeField] Material robotMaterial;
     [SerializeField] float passiveDecay;
 
@@ -22,6 +27,7 @@ public class Robot : MonoBehaviour
     Item carrying = null;
     [SerializeField] float buildTime;
     float buildStartTime = 0;
+    [SerializeField] ParticleSystem buildParticles;
 
     public enum RobotState
     {
@@ -33,9 +39,17 @@ public class Robot : MonoBehaviour
     private RobotState robotState;
 
     void Start() {
+        chargeBar = GameObject.FindWithTag("ChargeBar").GetComponent<Image>();
+
         InputManager.inst.drop.AddListener(DropItem);
         InputManager.inst.buildStart.AddListener(BuildStart);
         InputManager.inst.buildEnd.AddListener(BuildEnd);
+
+        // stupid work around to set duration
+        var main = buildParticles.main;
+        main.duration = buildTime;
+
+        firstCharge = false;
     }
 
     // Update is called once per frame
@@ -48,15 +62,28 @@ public class Robot : MonoBehaviour
                 NormalUpdate();
                 break;
             case RobotState.NoPower:
-                if (charge > noChargeAmount) {
-                    robotState = RobotState.Normal;
-                }
+                transform.Rotate(Vector3.forward * (180 - transform.localEulerAngles.z) * Time.deltaTime);
+                float modelHeight = 1.25f;
+                transform.position = new Vector3(transform.position.x, transform.localEulerAngles.z / 180.0f * modelHeight, transform.position.z);
+
+                // apply any velocity with heavy fall off
+                transform.position += new Vector3(velocity.x, 0, velocity.y) * Time.deltaTime;
+                velocity -= velocity * Time.deltaTime / .5f;
                 break;
             case RobotState.Building:
                 if (Time.time - buildStartTime >= buildTime) {
                     BuildCarrying();
                 } 
                 break;
+        }
+
+        if (robotState != RobotState.NoPower) {
+            transform.position += Vector3.up * hopVelocity * Time.deltaTime;
+            hopVelocity -= Time.deltaTime * 10f;
+            if (transform.position.y < 0) {
+                hopVelocity = 0;
+                transform.position -= Vector3.up * transform.position.y;
+            }
         }
 
         // Passive decay
@@ -87,6 +114,7 @@ public class Robot : MonoBehaviour
 
         if(charge <= noChargeAmount)
         {
+            velocity = Vector2.zero;
             robotState = RobotState.NoPower;
         }
     }
@@ -98,10 +126,25 @@ public class Robot : MonoBehaviour
         else
             charge += amount;
         UpdateChargeMeter();
+
+        if (robotState == RobotState.NoPower) {
+            transform.position -= Vector3.up * transform.position.y;
+            transform.Rotate(Vector3.forward * (-transform.localEulerAngles.z));
+            robotState = RobotState.Normal;
+        }
+
+        // hop into air
+        hopVelocity = Mathf.Max(hopAmount, hopVelocity + hopAmount);
+
+        // Trigger first charge
+        if (!firstCharge) {
+            firstCharge = true;
+            EnemySpawner.inst.enabled = true;
+        }
     }
 
     private void UpdateChargeMeter() {
-        ChargeBar.fillAmount = charge;
+        chargeBar.fillAmount = charge;
         robotMaterial.SetVector("_EmissionColor", new Vector4(charge * 2, charge * 2, charge, 1.0f));
     }
 
@@ -126,6 +169,7 @@ public class Robot : MonoBehaviour
         if (carrying != null && robotState == RobotState.Normal) {
             robotState = RobotState.Building;
             buildStartTime = Time.time;
+            buildParticles.Play();
             Debug.Log("Build started");
         }
     }
@@ -133,15 +177,23 @@ public class Robot : MonoBehaviour
     public void BuildEnd() {
         if (robotState == RobotState.Building) {
             robotState = RobotState.Normal;
+            buildParticles.Stop();
             Debug.Log("Build ended");
         }
     }
 
     public void BuildCarrying() {
         Debug.Log("Building placed!!");
-        WorldManager.Instance.PlaceStation(carrying.cargo, transform.position + transform.forward);
+        WorldManager.Instance.PlaceStation(carrying.cargo, transform.position - Vector3.up * transform.position.y + transform.forward);
         Destroy(carrying.gameObject);
         carrying = null;
         BuildEnd();
+    }
+
+    public void Spawn() {
+        charge = 0;
+        robotState = RobotState.NoPower;
+        float angle = Random.Range(0, 2 * Mathf.PI);
+        velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 10f; // shoot off in a random direction
     }
 }

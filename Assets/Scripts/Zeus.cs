@@ -17,6 +17,7 @@ public class Zeus : MonoBehaviour
     [Header("Smite")]
     [SerializeField] float smiteRadius;
     [SerializeField] LineRenderer lightningArc;
+    [SerializeField] ParticleSystem smiteBurst;
     bool smiteReady = true;
 
     void Start() {
@@ -56,7 +57,10 @@ public class Zeus : MonoBehaviour
     IEnumerator SmiteAnimation() {
         lightningArc.enabled = true;
         smiteReady = false;
-        
+
+        // Particle system handles its own flashing
+        smiteBurst.Play();
+
         // List of collided stuff
         List<Transform> collisions = new List<Transform>();
 
@@ -105,5 +109,9 @@ public class Zeus : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         smiteReady = true;
+    }
+
+    public void Spawn() {
+        return;
     }
 }
