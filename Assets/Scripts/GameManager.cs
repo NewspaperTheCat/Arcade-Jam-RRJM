@@ -76,8 +76,11 @@ public class GameManager : MonoBehaviour
 
     private int newHighscoreSpot()
     {
-        for (int i = 0; i < highScores.Length; i++) { 
-            if(points > highScores[i].points)
+        for (int i = 0; i < highScores.Length; i++) {
+
+
+            Debug.Log($"{points}");
+            if (points > highScores[i].points)
             {
                 return i;
             }
@@ -88,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     private void timeAlivePoints()
     {
-        int amount = Mathf.CeilToInt(points * pointMultiplier);
+        int amount = Mathf.CeilToInt(elapsedTime * pointMultiplier);
         points += amount;
 
 
