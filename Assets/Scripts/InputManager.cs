@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
-using System.ComponentModel;
-using System.Runtime.Serialization.Formatters;
-using Unity.VisualScripting;
+using TMPro;
 
 public class InputManager : MonoBehaviour
 {
@@ -23,6 +21,9 @@ public class InputManager : MonoBehaviour
     public UnityEvent escape = new UnityEvent();
     float double_tap_start_time = -10;
     const float DOUBLE_TAP_MAX = .5f;
+
+    // Debugging
+    [SerializeField] TextMeshProUGUI debugText = null;
 
     // Singleton
     void Awake() {
@@ -59,15 +60,17 @@ public class InputManager : MonoBehaviour
     }
 
     public void OnSmite(InputAction.CallbackContext context) {
-        if (context.performed) smite.Invoke();
+        writeDebug("Smite: " + context.phase);
+        if (context.phase == InputActionPhase.Performed) smite.Invoke();
     }
 
     public void OnInteract(InputAction.CallbackContext context) {
-        if (context.started) {
+        writeDebug("Interact: " + context.phase);
+        if (context.phase == InputActionPhase.Started) {
             buildStart.Invoke();
         }
 
-        if (context.performed) {
+        if (context.phase == InputActionPhase.Performed) {
             if (Time.time - double_tap_start_time <= DOUBLE_TAP_MAX) {
                 drop.Invoke();
                 double_tap_start_time = -10;
@@ -76,16 +79,24 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        if (context.canceled) {
+        if (context.phase == InputActionPhase.Canceled) {
             buildEnd.Invoke();
         }
     }
 
     
     public void OnEscape(InputAction.CallbackContext context) {
-        if (context.performed) {
+        writeDebug("Escape: " + context.phase);
+        if (context.phase == InputActionPhase.Performed) {
             escape.Invoke();
         }
+    }
+
+    // Debug Text
+    private void writeDebug(string message) {
+        if (debugText == null) return;
+
+        debugText.text = message + "\n" + debugText.text;
     }
 
 }
