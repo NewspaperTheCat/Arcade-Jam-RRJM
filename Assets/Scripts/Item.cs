@@ -16,7 +16,6 @@ public class Item : MonoBehaviour
     // Drop Parameters
     const float DROP_DISTANCE = 2f;
     const float DROP_TIME = .5f;
-    float time_dropped;
 
     // Passive animation
     const float BOB_HEIGHT = .375f;
@@ -29,6 +28,8 @@ public class Item : MonoBehaviour
     }
     ItemState state = ItemState.IDLE;
     float time_alive = 0;
+    [SerializeField] float death_time;
+    [SerializeField] float death_duration;
 
     Vector3 anchor; // local space
 
@@ -39,8 +40,9 @@ public class Item : MonoBehaviour
     public void Drop() {
         transform.SetParent(WorldManager.Instance.transform);
         state = ItemState.DROPPING;
-        time_dropped = Time.time;
+        time_alive = 0;
 
+        transform.localScale = Vector3.one;
         GetComponent<Collider>().enabled = false;
 
         Vector2 dir = Random.insideUnitCircle * DROP_DISTANCE;
@@ -49,15 +51,25 @@ public class Item : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        time_alive += Time.deltaTime;
+        if (state != ItemState.GRABBED) time_alive += Time.deltaTime;
+        else transform.localScale = Vector3.one;
         
         Vector3 target =  anchor + Vector3.up * (Mathf.Sin(time_alive) * .5f + 1)  * BOB_HEIGHT;
         transform.localPosition += (target - transform.localPosition) * Time.deltaTime / .25f;
         transform.Rotate(Vector3.up * BOB_ROTATION * Time.deltaTime);
 
-        if (state == ItemState.DROPPING && Time.time - time_dropped > DROP_TIME) {
+        if (state == ItemState.DROPPING && time_alive > DROP_TIME) {
             GetComponent<Collider>().enabled = true;
             state = ItemState.IDLE;
+        }
+
+        if (time_alive > death_time) {
+            float t = (time_alive - death_time) / death_duration;
+            t = t * t;
+            transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, t);
+            if (t >= 1) {
+                Destroy(gameObject);
+            }
         }
     }
 

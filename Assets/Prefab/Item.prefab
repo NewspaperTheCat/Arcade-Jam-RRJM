@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cargo: 2
+  death_time: 10
+  death_duration: 2.5
 --- !u!65 &8096047977065035851
 BoxCollider:
   m_ObjectHideFlags: 0

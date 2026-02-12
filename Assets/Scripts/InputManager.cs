@@ -44,9 +44,15 @@ public class InputManager : MonoBehaviour
 
     // ================================================================
     // Input System Interactions
-    public void OnRobotMove(InputAction.CallbackContext context) {
-        robotMovement = context.ReadValue<Vector2>();
+
+    public void OnRobotMoveY(InputAction.CallbackContext context) {
+        robotMovement.y = context.ReadValue<float>();
     }
+
+    public void OnRobotMoveX(InputAction.CallbackContext context) {
+        robotMovement.x = context.ReadValue<float>();
+    }
+
 
     public void OnZeusMove(InputAction.CallbackContext context) {
         zeusMovement = context.ReadValue<Vector2>();
