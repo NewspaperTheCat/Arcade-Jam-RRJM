@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     private const string EMPTYNAME = "ABC/ABC";
     private const int EMPTYSCORE = 0;
 
+    [Header("Debug")]
+    [SerializeField] private bool resetHighscores;
+
 
     [HideInInspector] public Transform homeStation;
     private void Awake()
@@ -37,6 +40,9 @@ public class GameManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
         SetUpGame();
+
+
+        if(resetHighscores) PlayerPrefs.DeleteAll();
 
     }
 
