@@ -20,7 +20,8 @@ public class CreateNewHighscore : MonoBehaviour
         if (keyboards[0].nameSelected == Keyboard.NameSelected.Selected && keyboards[1].nameSelected == Keyboard.NameSelected.Selected && !bothSelected)
         {
             bothSelected = true;
-            string teamName = keyboards[0].name + "/" + keyboards[01].name;
+            string teamName = keyboards[0].GetComponent<Keyboard>().highscoreName + "/" + keyboards[1].GetComponent<Keyboard>().highscoreName;
+            GameManager.Instance.AddNewHighscore(teamName);
             SceneManager.LoadScene("GameOver");
         }
     }

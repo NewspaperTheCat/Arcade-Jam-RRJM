@@ -36,20 +36,13 @@ public class GameManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
-        InitializeIfNeeded();
-        LoadHighScores();
         SetUpGame();
 
     }
 
     private void Update()
     {
-        if (gameOver)
-        {
-            timeAlivePoints();
-        }
-
-        elapsedTime += Time.deltaTime;
+        if (!gameOver) elapsedTime += Time.deltaTime;
     }
 
     public void RestartGame()
@@ -61,6 +54,11 @@ public class GameManager : MonoBehaviour
     public void SetGameOver(bool go = true)
     {
         gameOver = go;
+
+        if (gameOver)
+        {
+            timeAlivePoints();
+        }
     }
 
     public bool getGameOver()
@@ -96,6 +94,8 @@ public class GameManager : MonoBehaviour
 
 
         if (newHighscoreSpot() != -1) {
+            InitializeIfNeeded();
+            LoadHighScores();
             SceneManager.LoadScene("EnterHighscore");
         }
         else

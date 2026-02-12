@@ -122,6 +122,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &31078865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3801378988907326225, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_Name
+      value: _GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.4015045
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.586321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27.558594
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839643285419834170, guid: ebfa00df11fe70141ab7e32d04730ce6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ebfa00df11fe70141ab7e32d04730ce6, type: 3}
 --- !u!1 &411051169
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,14 +838,14 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1017,14 +1085,14 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1099,6 +1167,7 @@ MonoBehaviour:
   cols: 6
   lastRowCols: 3
   prefab: {fileID: 4790458634036139347, guid: 4e6ea0468cc9e01409355807342d0c8b, type: 3}
+  highscoreName: 
   displayText: {fileID: 4324815130711610775}
   moveCooldown: 0.15
   nameSelected: 0
@@ -1314,6 +1383,7 @@ MonoBehaviour:
   cols: 6
   lastRowCols: 3
   prefab: {fileID: 4790458634036139347, guid: 4e6ea0468cc9e01409355807342d0c8b, type: 3}
+  highscoreName: 
   displayText: {fileID: 1344616693699778187}
   moveCooldown: 0.15
   nameSelected: 0
@@ -1377,3 +1447,4 @@ SceneRoots:
   - {fileID: 1163064950}
   - {fileID: 2102019234}
   - {fileID: 411051171}
+  - {fileID: 31078865}
