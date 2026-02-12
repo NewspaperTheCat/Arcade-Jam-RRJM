@@ -24,7 +24,7 @@ public class Keyboard : MonoBehaviour
     private Vector2Int cursorPosition;
     private RectTransform[][] grid;
 
-    private string name = String.Empty;
+    [HideInInspector] public string highscoreName = String.Empty;
 
     public TMP_Text displayText;
 
@@ -65,6 +65,8 @@ public class Keyboard : MonoBehaviour
         {
             InputManager.inst.buildStart.AddListener(BuildStart);
         }
+
+        DeSelect();
     }
 
     private void Update()
@@ -190,7 +192,6 @@ public class Keyboard : MonoBehaviour
 
         if (cursorPosition.y == rows - 1)
         {
-            Debug.Log("Hello");
             if (cursorPosition.x + col > 2)
             {
                 newX = 0;
@@ -275,37 +276,45 @@ public class Keyboard : MonoBehaviour
                 DeSelect();
             }
 
-            name = name.Substring(0, name.Length - 1);
+            highscoreName = highscoreName.Substring(0, highscoreName.Length - 1);
+        }
+
+
+        if (highscoreName.Length == 3)
+        {
+            if (text == words[2])
+            {
+                if(nameSelected == NameSelected.Selected)
+                {
+                    DeSelect();
+                }
+                else
+                {
+                    SelectName();
+                }
+            }
         }
 
         if (nameSelected == NameSelected.Selected)
             return;
 
-        if (name.Length == 3)
-        {
-            if (text == words[2])
-            {
-                SelectName();
-            }
-        }
-
-        if (name.Length < 3)
+        if (highscoreName.Length < 3)
         {
             if (text.Length > 1)
             {
                 if (text == words[0])
                 {
-                    name += " ";
+                    highscoreName += " ";
                 }
             }
             else
             {
-                name += text[0];
+                highscoreName += text[0];
             }
         }
-        displayText.text = name;
+        displayText.text = highscoreName;
 
-        Debug.Log(name);
+        Debug.Log(highscoreName);
         //Debug.Log(grid[cursorPosition.y, cursorPosition.x].GetChild(0).GetComponent<TMP_Text>().text[0]);
     }
 
